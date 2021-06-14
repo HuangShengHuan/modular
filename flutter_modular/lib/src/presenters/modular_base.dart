@@ -81,7 +81,10 @@ extension ModularExtensionGetMaterial on GetMaterialApp {
 
     final app = GetMaterialApp.router(
       key: key,
+      translations: translations,
       routeInformationProvider: routeInformationProvider,
+      locale:locale,
+      fallbackLocale: fallbackLocale,
       backButtonDispatcher: backButtonDispatcher,
       builder: builder,
       title: title,
@@ -92,7 +95,6 @@ extension ModularExtensionGetMaterial on GetMaterialApp {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       themeMode: themeMode,
-      locale: locale,
       localizationsDelegates: localizationsDelegates,
       localeListResolutionCallback: localeListResolutionCallback,
       localeResolutionCallback: localeResolutionCallback,
