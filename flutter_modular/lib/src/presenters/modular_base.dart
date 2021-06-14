@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../flutter_modular.dart';
 import '../core/interfaces/modular_interface.dart';
@@ -66,6 +67,44 @@ extension ModularExtensionMaterial on MaterialApp {
       shortcuts: shortcuts,
       actions: actions,
       restorationScopeId: restorationScopeId,
+      routeInformationParser: _routeInformationParser,
+      routerDelegate: _routerDelegate,
+    );
+
+    return app;
+  }
+}
+
+extension ModularExtensionGetMaterial on GetMaterialApp {
+  GetMaterialApp modular() {
+    initialRouteDeclaratedInMaterialApp = initialRoute ?? '/';
+
+    final app = GetMaterialApp.router(
+      key: key,
+      routeInformationProvider: routeInformationProvider,
+      backButtonDispatcher: backButtonDispatcher,
+      builder: builder,
+      title: title,
+      onGenerateTitle: onGenerateTitle,
+      color: color,
+      theme: theme,
+      darkTheme: darkTheme,
+      highContrastTheme: highContrastTheme,
+      highContrastDarkTheme: highContrastDarkTheme,
+      themeMode: themeMode,
+      locale: locale,
+      localizationsDelegates: localizationsDelegates,
+      localeListResolutionCallback: localeListResolutionCallback,
+      localeResolutionCallback: localeResolutionCallback,
+      supportedLocales: supportedLocales,
+      debugShowMaterialGrid: debugShowMaterialGrid,
+      showPerformanceOverlay: showPerformanceOverlay,
+      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+      showSemanticsDebugger: showSemanticsDebugger,
+      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+      shortcuts: shortcuts,
+      actions: actions,
       routeInformationParser: _routeInformationParser,
       routerDelegate: _routerDelegate,
     );
